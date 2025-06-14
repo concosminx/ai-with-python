@@ -5,13 +5,14 @@ pip install -U crawl4ai
 
 # If you encounter any browser-related issues, you can install them manually:
 python -m playwright install --with-deps chromium
-
+playwright install 
 
 
 ## Prerequisites
 
 - Python 3.11+
-- Supabase account and database
+- ChromaDB (Run Chroma in a Docker Container with `docker run -v ./chroma-data:/data -p 8000:8000 chromadb/chroma
+`)
 - OpenAI API key
 - Streamlit (for web interface)
 
@@ -30,8 +31,6 @@ playwright install
    - Edit `.env` with your API keys and preferences:
    ```env
    OPENAI_API_KEY=your_openai_api_key
-   SUPABASE_URL=your_supabase_url
-   SUPABASE_SERVICE_KEY=your_supabase_service_key
    LLM_MODEL=gpt-4o-mini  # or your preferred OpenAI model
    ```
 
@@ -52,6 +51,14 @@ python insert_docs.py <URL> [--collection mydocs] [--db-dir ./chroma_db] [--embe
 - `--max-depth`: Recursion depth for regular URLs (default: `3`)
 - `--max-concurrent`: Max parallel browser sessions (default: `10`)
 - `--batch-size`: Batch size for ChromaDB insertion (default: `100`)
+
+
+**Examples for each type (regular URL, .txt, sitemap):**
+```bash
+python insert_docs.py https://ai.pydantic.dev/
+python insert_docs.py https://ai.pydantic.dev/llms-full.txt
+python insert_docs.py https://ai.pydantic.dev/sitemap.xml
+```
 
 #### Chunking Strategy
 

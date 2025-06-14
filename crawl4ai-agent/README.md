@@ -5,6 +5,7 @@ pip install -U crawl4ai
 
 # If you encounter any browser-related issues, you can install them manually:
 python -m playwright install --with-deps chromium
+playwright install   
 
 
 
@@ -29,7 +30,7 @@ pip install -r requirements.txt
    - Edit `.env` with your API keys and preferences:
    ```env
    OPENAI_API_KEY=your_openai_api_key
-   SUPABASE_URL=your_supabase_url
+   SUPABASE_URL=your_supabase_url #Go to `Project Settings` and get the URL and Service Key.
    SUPABASE_SERVICE_KEY=your_supabase_service_key
    LLM_MODEL=gpt-4o-mini  # or your preferred OpenAI model
    ```
@@ -44,6 +45,8 @@ Execute the SQL commands in `site_pages.sql` to:
 3. Set up Row Level Security policies
 
 In Supabase, do this by going to the "SQL Editor" tab and pasting in the SQL into the editor there. Then click "Run".
+Check the table in the `Table editor` section.
+
 
 ### Crawl Documentation
 
